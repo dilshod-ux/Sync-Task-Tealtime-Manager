@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Auth section */
+#authSection {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+#loginBtn {
+  padding: 10px 20px;
+  background: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: 0.3s;
+}
+#loginBtn:hover {
+  background: #357ae8;
+}
+#logoutBtn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: auto;
+}
+#userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#userImg {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+#userName {
+  font-weight: bold;
+  color: #555;
+}
+
+/* Input qismi */
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.3s;
+}
+input:focus {
+  border-color: #4285f4;
+}
+#addBtn {
+  padding: 12px 20px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+#addBtn:hover {
+  background: #218838;
+}
+
+/* Ro'yxat */
+ul {
+  list-style: none;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fdfdfd;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  transition: 0.3s;
+  animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bajarilgan vazifalar */
+li.completed .task-text {
+  text-decoration: line-through;
+  color: #888;
+  opacity: 0.6;
+}
+.actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 8px;
+  transition: 0.2s;
+}
+.actions button:hover {
+  transform: scale(1.2);
+}
+
+
+/* Asosiy dizayn */
+.input-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.selectors { display: flex; gap: 10px; }
+input, select, button { padding: 10px; border-radius: 5px; border: 1px solid #ddd; }
+
+/* Vazifa elementlari */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 10px solid #ccc; /* Odatiy rang */
+}
+
+/* Muhimlikka qarab ranglar */
+.task-item.high { border-left-color: #ff4757; background: #fff1f2; }
+.task-item.medium { border-left-color: #ffa502; background: #fffcf0; }
+.task-item.low { border-left-color: #2ed573; background: #f0fff4; }
+
+.task-info { display: flex; flex-direction: column; }
+.task-time { font-size: 12px; color: #777; margin-top: 5px; }
+
+/* Bajarilgan vazifa */
+.completed { opacity: 0.5; text-decoration: line-through; filter: grayscale(1); }
