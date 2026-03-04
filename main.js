@@ -79,43 +79,13 @@ addBtn.onclick = async () => {
 
 // --- REJALARNI BAZADAN YUKLASH ---
 function loadTasks(uid) {
-    let q;
-    if (currentView === 'my') {
-        // Faqat o'zimning rejalarimni ko'rsatish
-        q = query(collection(db, "tasks"), where("uid", "==", uid), orderBy("createdAt", "desc"));
-    } else {
-        // Faqat ommaviy deb belgilangan rejalarni ko'rsatish
-        q = query(collection(db, "tasks"), where("visibility", "==", "public"), orderBy("createdAt", "desc"));
-    }
-
-    onSnapshot(q, (snapshot) => {
-        taskList.innerHTML = "";
-        snapshot.forEach((docSnap) => {
-            const task = docSnap.data();
-            const id = docSnap.id;
-            const isComp = task.completed ? "completed" : "";
-            
-            const li = document.createElement("li");
-            li.className = `task-item ${task.priority || 'medium'} ${isComp}`;
-            
-            // Ommaviy devorda foydalanuvchi ismini chiqarish
-            const ownerInfo = (currentView === 'public' && task.userName) ? `<br><small style="color:#007bff">👤 ${task.userName}</small>` : "";
-
-            li.innerHTML = `
-                <div class="task-info">
-                    <b class="task-text">${task.text}</b> ${ownerInfo}
-                    <small class="task-time">${task.deadline ? '⏰ ' + task.deadline.replace('T', ' ') : ''}</small>
-                </div>
-                <div class="actions">
-                    ${currentView === 'my' ? `
-                        <button onclick="toggleTask('${id}', ${task.completed})">✅</button>
-                        <button onclick="deleteTask('${id}')">🗑️</button>
-                    ` : ""}
-                </div>
-            `;
-            taskList.appendChild(li);
-        });
-    });
+// main.js faylidagi loadTasks funksiyasini shu qismini almashtiring:
+if (currentView === 'my') {
+    q = query(collection(db, "tasks"), where("uid", "==", uid), orderBy("createdAt", "desc"));
+} else {
+    // Ommaviy devor uchun saralashni indeksingizga moslab 'desc'siz yozamiz
+    q = query(collection(db, "tasks"), where("visibility", "==", "public"), orderBy("createdAt"));
+}
 }
 
 // --- GLOBAL FUNKSIYALAR (HTML DAN CHAQIRILADI) ---
