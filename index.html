@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SyncTask - Realtime Manager</title>
     <link rel="stylesheet" href="app.css">
+    <link rel="icon" href="data:,">
 </head>
 <body>
 
@@ -14,22 +15,35 @@
         <div id="authSection">
             <button id="loginBtn">Google orqali kirish</button>
             <div id="userInfo" style="display: none;">
-                <img id="userImg" src="" alt="User">
-                <span id="userName"></span>
+                <div class="user-meta">
+                    <img id="userImg" src="" alt="User">
+                    <span id="userName"></span>
+                </div>
                 <button id="logoutBtn">Chiqish</button>
             </div>
         </div>
 
         <div id="appSection" style="display: none;">
+            <div class="filter-tabs">
+                <button id="myTasksTab" class="active" onclick="changeView('my')">👤 Mening rejalarim</button>
+                <button id="publicTasksTab" onclick="changeView('public')">🌍 Ommaviy devor</button>
+            </div>
+
             <div class="input-group">
                 <input type="text" id="taskInput" placeholder="Nima reja qilyapsiz?">
                 
                 <div class="selectors">
                     <input type="datetime-local" id="taskDeadline">
+                    
                     <select id="taskPriority">
                         <option value="low">🟢 Past</option>
                         <option value="medium" selected>🟡 O'rtacha</option>
                         <option value="high">🔴 Yuqori</option>
+                    </select>
+
+                    <select id="taskVisibility">
+                        <option value="private">🔒 Shaxsiy</option>
+                        <option value="public">🌍 Ommaviy</option>
                     </select>
                 </div>
                 

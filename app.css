@@ -1,176 +1,219 @@
+/* 1. Umumiy sozlamalar */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f7f6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
+
 .container {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
 }
+
 h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1a73e8;
 }
 
-/* Auth section */
+/* 2. Auth (Kirish/Chiqish) qismi */
 #authSection {
-  text-align: center;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
 }
+
 #loginBtn {
-  padding: 10px 20px;
-  background: #4285f4;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  width: 100%;
-  transition: 0.3s;
+    padding: 12px;
+    background: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.3s;
 }
-#loginBtn:hover {
-  background: #357ae8;
-}
-#logoutBtn {
-  background: #dc3545;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: auto;
-}
+
 #userInfo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
+
+.user-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 #userImg {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #1a73e8;
 }
+
 #userName {
-  font-weight: bold;
-  color: #555;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
 }
 
-/* Input qismi */
+#logoutBtn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* 3. Filtr Tablar */
+.filter-tabs {
+    display: flex;
+    background: #f1f3f4;
+    padding: 5px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.filter-tabs button {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 10px;
+    background: transparent;
+    color: #5f6368;
+    transition: 0.3s;
+}
+
+.filter-tabs button.active {
+    background: white;
+    color: #1a73e8;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 4. Inputlar va Tugmalar */
 .input-group {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
 }
-input {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  outline: none;
-  transition: 0.3s;
+
+input, select {
+    padding: 12px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
 }
-input:focus {
-  border-color: #4285f4;
+
+.selectors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
 }
+
 #addBtn {
-  padding: 12px 20px;
-  background: #28a745;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-#addBtn:hover {
-  background: #218838;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-/* Ro'yxat */
-ul {
-  list-style: none;
-}
-li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #fdfdfd;
-  margin-bottom: 10px;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #eee;
-  transition: 0.3s;
-  animation: fadeIn 0.4s ease;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+#addBtn:hover { background: #218838; }
+
+/* 5. Rejalar Ro'yxati */
+#taskList {
+    list-style: none;
 }
 
-/* Bajarilgan vazifalar */
-li.completed .task-text {
-  text-decoration: line-through;
-  color: #888;
-  opacity: 0.6;
-}
-.actions button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  margin-left: 8px;
-  transition: 0.2s;
-}
-.actions button:hover {
-  transform: scale(1.2);
-}
-
-
-/* Asosiy dizayn */
-.input-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-.selectors { display: flex; gap: 10px; }
-input, select, button { padding: 10px; border-radius: 5px; border: 1px solid #ddd; }
-
-/* Vazifa elementlari */
 .task-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 15px;
     margin-bottom: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
     background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-left: 10px solid #ccc; /* Odatiy rang */
+    border-left: 6px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    animation: fadeIn 0.4s ease;
 }
 
-/* Muhimlikka qarab ranglar */
-.task-item.high { border-left-color: #ff4757; background: #fff1f2; }
-.task-item.medium { border-left-color: #ffa502; background: #fffcf0; }
-.task-item.low { border-left-color: #2ed573; background: #f0fff4; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-.task-info { display: flex; flex-direction: column; }
-.task-time { font-size: 12px; color: #777; margin-top: 5px; }
+/* Ranglar muhimlikka qarab */
+.task-item.high { border-left-color: #ea4335; background: #fff1f2; }
+.task-item.medium { border-left-color: #fbbc04; background: #fffcf0; }
+.task-item.low { border-left-color: #34a853; background: #f0fff4; }
 
-/* Bajarilgan vazifa */
-.completed { opacity: 0.5; text-decoration: line-through; filter: grayscale(1); }
+.task-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-text {
+    font-size: 16px;
+    color: #202124;
+    font-weight: 500;
+}
+
+.task-time {
+    font-size: 12px;
+    color: #70757a;
+    margin-top: 4px;
+}
+
+/* Bajarilgan holati */
+.task-item.completed {
+    opacity: 0.5;
+    filter: grayscale(0.8);
+}
+.task-item.completed .task-text {
+    text-decoration: line-through;
+}
+
+/* Action tugmalari */
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+.actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    transition: 0.2s;
+}
+
+.actions button:hover { transform: scale(1.2); }
